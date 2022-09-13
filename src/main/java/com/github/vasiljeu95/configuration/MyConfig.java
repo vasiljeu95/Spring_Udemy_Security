@@ -1,0 +1,28 @@
+package com.github.vasiljeu95.configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+/**
+ * MyConfig
+ *
+ * @author Stepan Vasilyeu
+ * @since 13.09.2022
+ */
+@Configuration
+@ComponentScan(basePackages = "com.github.vasiljeu95")
+@EnableWebMvc
+public class MyConfig {
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+        internalResourceViewResolver.setPrefix("/WEB-INF/view/");
+        internalResourceViewResolver.setSuffix(".jsp");
+
+        return internalResourceViewResolver;
+    }
+}
